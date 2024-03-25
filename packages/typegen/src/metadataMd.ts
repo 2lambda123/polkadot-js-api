@@ -161,7 +161,7 @@ function addRpc (_runtimeDesc: string, rpcMethods?: string[]): string {
     sections: Object
       .keys(definitions)
       .filter((key) => Object.keys(definitions[key as 'babe'].rpc || {}).length !== 0)
-      .sort()
+      .sort((a, b) => a.localeCompare(b))
       .reduce((all: Section[], _sectionName): Section[] => {
         const section = definitions[_sectionName as 'babe'];
 
